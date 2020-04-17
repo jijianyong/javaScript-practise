@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>检测用户名或者密码是否在三到六位数字</title>
+    <style>
+        .tu {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txtUserName"><br>
+    <input type="text" id="txtUserPassword"><br>
+    <input type="button" value=" 登 录 " id="butLogin">
+    <script>
+        var login = document.getElementById('butLogin'),
+            txtUserName = document.getElementById('txtUserName'),
+            txtUserPassword = document.getElementById('txtUserPassword');
+        
+        // name 保留字，不能使用
+        login.addEventListener("click", function() {
+            if(txtUserName.value.length < 3 || txtUserName.value.length > 6) {
+                txtUserName.className = "tu";
+                return;
+            }else {
+                txtUserName.className = "";
+            }
+
+            if(txtUserPassword.value.length < 3 || txtUserPassword.value.length > 6) {
+                txtUserPassword.className = "tu";
+                return;
+            }else {
+                txtUserPassword.className = "";
+            }
+
+            console.log("登录完成");
+            
+        })
+    </script>
+</body>
+</html>
