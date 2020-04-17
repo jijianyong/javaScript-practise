@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取文本框中的值</title>
+    <style>
+        input {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="button" value="统计">
+    <script>
+        var inputText = document.getElementsByTagName('input'),
+            length = inputText.length,
+            arrText = [];
+        for (var i = 0; i < length; i++) {
+            if(inputText[i].type === "text") {
+                inputText[i].value = i;
+                arrText.push(i);
+            }
+        }
+        for(var i = 0; i < length; i++) {
+            if(inputText[i].type === "button") {
+                inputText[i].onclick = function() {
+                    console.log( arrText.join("|"));
+                }
+            }
+        }
+    </script>
+</body>
+</html>
